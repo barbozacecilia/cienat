@@ -1,0 +1,18 @@
+.category-list label{
+ display: block;
+ font-family: 'Montserrat', sans-serif;
+ font-size: 18px;
+ font-weight: 600;
+ margin-bottom: 1vh; 
+ text-align: initial  
+}
+
+.category-list select{
+    width: 100%;
+    background-color: #FFF;
+    box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.06);
+    border: none;
+    padding: 30px 20px;
+    outline-color: #6278F7;
+    font-size: 16px;
+}
