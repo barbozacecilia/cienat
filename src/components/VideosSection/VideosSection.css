@@ -1,0 +1,25 @@
+.videos-section-container{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    flex-direction: row;
+    padding-left: 10vh;
+    margin: 10vh 10vh;
+}
+.title-videos-section{
+    color: #6278f7;
+    font-size: 32px;
+    font-weight: 400;
+    padding-bottom: 1vh;
+    border-bottom: 0.5vh solid #6278f7;
+    margin-right: 2hv;
+}
+
+.videos-section-container img{
+   display: flex;
+   width: 5rem;
+   height: 5rem;
+    right: 30%;
+    cursor: pointer;
+}

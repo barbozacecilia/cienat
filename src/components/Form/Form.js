@@ -13,10 +13,10 @@ const Form = ()=>{
     return <section className="form-video">
         <form onSubmit={handleButton}>
             <h2>Nuevo video</h2>
-            <InputForm label="Titulo" placeholder="Ingresar el titulo del video "/>
-            <InputForm label="Link" placeholder="Escribe el link "/>
-            <InputForm label="Link de imagen del video" placeholder="El link de la imagen del video"/>
-            <InputForm label="Descripción" placeholder="Ingresar la descripción "/>
+            <InputForm label="Titulo" placeholder="Ingresar el titulo del video " required/>
+            <InputForm label="Link" placeholder="Escribe el link" required/>
+            <InputForm label="Link de imagen del video" placeholder="El link de la imagen del video" required/>
+            <InputForm label="Descripción" placeholder="Ingresar la descripción" required={false}/>
             <CategoryList/>
             <Button> Guardar </Button>
         </form>
