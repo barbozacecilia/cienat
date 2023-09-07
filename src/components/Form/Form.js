@@ -9,7 +9,9 @@ const Form = (props)=>{
     const [link, setLink] = useState("");
     const [img, setImg] = useState("")
     const [description, setDescription] = useState("")
-    const [list, setList] = useState("")
+    const [category, setCategory] = useState("")
+
+    const {addNewVideo} = props
 
     const handleButton = (e) =>{
         e.preventDefault()
@@ -18,9 +20,10 @@ const Form = (props)=>{
             title: title,
             link: link,
             img: img,
-            description: description
+            description: description,
+            category: category
         }
-        console.log(dataToSend)
+        addNewVideo(dataToSend)
     }
 
     return <section className="form-video">
@@ -42,7 +45,7 @@ const Form = (props)=>{
             <InputForm label="Descripción" placeholder="Ingresar la descripción" 
             valor={description} setValor={setDescription} required={false}
             />
-            <CategoryList valor={list} setValor={setList} categories={props.categories}/>
+            <CategoryList valor={category} setValor={setCategory} categories={props.categories}/>
             <Button> Guardar </Button>
         </form>
     </section>

@@ -7,8 +7,18 @@ import Category from './components/Category';
 
 function App() {
   const [showForm, setShowForm]= useState(false)
+  const [videos, setVideos] = useState([])
+
   const changeStateForm = () =>{
     setShowForm(!showForm)
+  }
+
+  //add new video
+
+  const addNewVideo = (video) => {
+    console.log("New video", video)
+    //use Spreed operator to add new videos
+    setVideos([...videos, video])
   }
 
   //List of Categories
@@ -45,11 +55,18 @@ function App() {
     <div className="App">
       <Header/>
       {/* {showForm === true ? <Form/> : <></>} */}
-      {showForm && <Form categories={categories.map((category)=>category.title)}/>}
+      {showForm && <Form categories={
+        categories.map((category)=>category.title)}
+        addNewVideo={addNewVideo}
+        />}
       <VideosSection toShowForm={changeStateForm}/>
       {
         categories.map((category)=>{
-          return <Category data={category} key={category.title}/>
+          return <Category
+           data={category} 
+           key={category.title}
+           videos={videos}
+           />
         })
       }
     </div>

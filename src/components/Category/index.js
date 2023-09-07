@@ -4,6 +4,7 @@ import Video from "../Video"
 
 const Category = (props) => {
     const{ colorPrimary, colorSecondary, title} = props.data
+    const {videos} = props
 
     const color = {
         backgroundColor: colorSecondary
@@ -16,8 +17,9 @@ const Category = (props) => {
     return <section className="category" style={color}>
         <h3 style={borderTitle}>{title}</h3>
         <div className="videos">
-            <Video/>
-            <Video/>
+            {
+            videos.map((video, index)=> <Video data={video} key={index}/> )
+            }
         </div>
     </section>
 }

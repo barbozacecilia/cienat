@@ -1,13 +1,15 @@
 import "./Video.css"
 
-const Video = () =>{
+const Video = (props) =>{
+    const {title, link, img, description, category}= props.data
     return <div className="video-container">
         <div className="header">
-            <img src="img/icono-video.png" alt="icono video" />
+            <img src={img} alt={title}/>
         </div>
         <div className="info">
-            <h4>Titlo del video</h4>
-            <h5>Breve descripcion</h5>
+            <h4>{title}</h4>
+            <h5>{description}</h5>
+            <h5>{link}</h5>
         </div>
     </div>
 }
