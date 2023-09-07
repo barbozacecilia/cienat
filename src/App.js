@@ -10,16 +10,48 @@ function App() {
   const changeStateForm = () =>{
     setShowForm(!showForm)
   }
+
+  //List of Categories
+
+  const categories = [
+    {
+      title:"Astronomía" ,
+      colorPrimary: "#DB6EBF",
+      colorSecondary:"#FAE9F5",
+    },
+    {
+      title:"Biología",
+      colorPrimary: "#57C278" ,
+      colorSecondary: "#D9F7E9" ,
+    },
+    {
+      title:"Física" ,
+      colorPrimary: "#82CFFA" ,
+      colorSecondary:"#E8F8FF" ,
+    },
+    {
+      title:"Química" ,
+      colorPrimary: "#A6D157" ,
+      colorSecondary:"#F0F8E2",
+    },
+    {
+      title:"Otros" ,
+      colorPrimary: "#E06B69" ,
+      colorSecondary:"#FDE7E8",
+    },
+    
+  ]
    return (
     <div className="App">
       <Header/>
       {/* {showForm === true ? <Form/> : <></>} */}
-      {showForm && <Form/>}
+      {showForm && <Form categories={categories.map((category)=>category.title)}/>}
       <VideosSection toShowForm={changeStateForm}/>
-      <Category category="Astronomia"/>
-      <Category category="Biologia"/>
-      <Category category="Fisica"/>
-      <Category category="Quimica"/>
+      {
+        categories.map((category)=>{
+          return <Category data={category} key={category.title}/>
+        })
+      }
     </div>
   );
 }

@@ -4,7 +4,7 @@ import InputForm from "../InputForm"
 import CategoryList from "../CategoryList"
 import Button from "../Button"
 
-const Form = ()=>{
+const Form = (props)=>{
     const [title, setTitle] = useState ("");
     const [link, setLink] = useState("");
     const [img, setImg] = useState("")
@@ -42,7 +42,7 @@ const Form = ()=>{
             <InputForm label="Descripción" placeholder="Ingresar la descripción" 
             valor={description} setValor={setDescription} required={false}
             />
-            <CategoryList valor={list} setValor={setList}/>
+            <CategoryList valor={list} setValor={setList} categories={props.categories}/>
             <Button> Guardar </Button>
         </form>
     </section>
