@@ -4,7 +4,7 @@ import Video from "../Video"
 
 const Category = (props) => {
     const{ colorPrimary, colorSecondary, title} = props.data
-    const {videos} = props
+    const {videos, deleteVideo} = props
 
     const color = {
         backgroundColor: colorSecondary
@@ -25,6 +25,7 @@ const Category = (props) => {
                     data={video}
                     key={index} 
                     colorPrimary={colorPrimary}
+                    deleteVideo={deleteVideo}
                     /> )
                 }
             </div>
