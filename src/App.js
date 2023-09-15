@@ -4,10 +4,18 @@ import Header from './components/Header/Header';
 import Form from './components/Form/Form';
 import VideosSection from './components/VideosSection';
 import Category from './components/Category';
+import Footer from './components/Footer';
 
 function App() {
   const [showForm, setShowForm]= useState(false)
-  const [videos, setVideos] = useState([])
+  const [videos, setVideos] = useState([ {
+    category: "Biología",
+    description: "Las ramas de la biología; te explicamos cuáles son y qué estudian",
+    img: "https://s1.significados.com/foto/ramas-de-la-biologia-1.jpg",
+    link: "https://www.youtube.com/watch?v=SaUprQT9gj0",
+    title: "Las ramas de la biología",
+
+  }])
 
   const changeStateForm = () =>{
     setShowForm(!showForm)
@@ -65,10 +73,13 @@ function App() {
           return <Category
            data={category} 
            key={category.title}
-           videos={videos}
+           videos={videos.filter(video=> video.category === category.title)}
            />
+
         })
       }
+           <Footer/>
+
     </div>
   );
 }

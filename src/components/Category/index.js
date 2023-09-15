@@ -14,14 +14,23 @@ const Category = (props) => {
         borderColor: colorPrimary
     }
 
-    return <section className="category" style={color}>
-        <h3 style={borderTitle}>{title}</h3>
-        <div className="videos">
-            {
-            videos.map((video, index)=> <Video data={video} key={index}/> )
-            }
-        </div>
-    </section>
+    return <>
+        {
+        videos.length > 0 && 
+            <section className="category" style={color}>
+            <h3 style={borderTitle}>{title}</h3>
+            <div className="videos">
+                {
+                videos.map((video, index)=> <Video 
+                    data={video}
+                    key={index} 
+                    colorPrimary={colorPrimary}
+                    /> )
+                }
+            </div>
+        </section>
+    }
+    
+    </>
 }
-
 export default Category

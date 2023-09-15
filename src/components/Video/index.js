@@ -2,8 +2,9 @@ import "./Video.css"
 
 const Video = (props) =>{
     const {title, link, img, description, category}= props.data
+    const {colorPrimary}=props
     return <div className="video-container">
-        <div className="header">
+        <div className="top-card" style={{backgroundColor: colorPrimary}}>
             <img src={img} alt={title}/>
         </div>
         <div className="info">
