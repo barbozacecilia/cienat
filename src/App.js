@@ -1,21 +1,25 @@
 import { useState } from 'react';
+import { v4 as uuid} from 'uuid';
 import './App.css';
 import Header from './components/Header/Header';
 import Form from './components/Form/Form';
 import VideosSection from './components/VideosSection';
 import Category from './components/Category';
 import Footer from './components/Footer';
+import CategoryForm from './components/CategoryForm';
 
 function App() {
   const [showForm, setShowForm]= useState(false)
   const [videos, setVideos] = useState([ {
-     category: "Biología",
+    id: uuid(), 
+    category: "Biología",
       description: "Las ramas de la biología; te explicamos cuáles son y qué estudian",
-      img: "https://s1.significados.com/foto/ramas-de-la-biologia-1.jpg",
-      link: "https://www.youtube.com/watch?v=SaUprQT9gj0",
-      title: "Las ramas de la biología"
+    img: "https://s1.significados.com/foto/ramas-de-la-biologia-1.jpg",
+    link: "https://www.youtube.com/watch?v=SaUprQT9gj0",
+    title: "Las ramas de la biología"
   },
   {
+    id: uuid(),
     category: "Biología",
     description: "Que es la biología y su importancia.",
     img: "https://img.youtube.com/vi/XViBPvJAaxI/mqdefault.jpg",
@@ -24,6 +28,7 @@ function App() {
   }
   ,
   {
+    id: uuid(),
     category: "Química",
     description: "En este video definimos la química, damos ejemplos y vemos sus áreas de estudio.",
     img: "https://unibetas.com/wp-content/uploads/2022/01/que-estudia-la-quimica-como-ciencia-experimental.png",
@@ -31,6 +36,7 @@ function App() {
     title: "¿Qué es la química? "
   },
   {
+    id: uuid(),
     category: "Química",
     description: "En este video encontramos un rap de la tabla periódica",
     img: "https://i.ytimg.com/vi/4BiOoOvTN9M/maxresdefault.jpg",
@@ -38,6 +44,7 @@ function App() {
     title: "RAP de la TABLA PERIÓDICA"
   },
   {
+    id: uuid(),
     category: "Física",
     description: "En este video de introducción al curso, veremos el concepto de física, y veremos por qué es tan importante en nuestra vida. ",
     img: "https://img.youtube.com/vi/-GgrsezemTY/maxresdefault.jpg",
@@ -46,6 +53,7 @@ function App() {
   }
   ,
   {
+    id: uuid(),
     category: "Astronomía",
     description: "la definición de la Astronomía y su historia. ",
     img: "https://img.youtube.com/vi/XjcEYANHVpM/maxresdefault.jpg",
@@ -54,14 +62,16 @@ function App() {
   }
 
 ])
-
+//Update Categories
 const [categories , updateCategories] = useState ([
   {
+    id: uuid(),
     title:"Astronomía" ,
     colorPrimary: "#DB6EBF",
     colorSecondary:"#FAE9F5",
   },
   {
+    id: uuid(),
     title:"Biología",
     colorPrimary: "#57C278" ,
     colorSecondary: "#D9F7E9" ,
@@ -72,11 +82,13 @@ const [categories , updateCategories] = useState ([
     colorSecondary:"#E8F8FF" ,
   },
   {
+    id: uuid(),
     title:"Química" ,
     colorPrimary: "#A6D157" ,
     colorSecondary:"#F0F8E2",
   },
   {
+    id: uuid(),
     title:"Otros" ,
     colorPrimary: "#E06B69" ,
     colorSecondary:"#FDE7E8",
@@ -84,8 +96,10 @@ const [categories , updateCategories] = useState ([
   
 
 //Delete Video
-const deleteVideo = () =>{
-  console.log("delete video")
+const deleteVideo = (id) =>{
+  console.log("delete video", id)
+  const newVideos = videos.filter((video)=>video.id !== id)
+  setVideos(newVideos)
 }
 
   const changeStateForm = () =>{
@@ -105,11 +119,16 @@ const deleteVideo = () =>{
   }
 
   //add new video
-
   const addNewVideo = (video) => {
     console.log("New video", video)
     //use Spreed operator to add new videos
     setVideos([...videos, video])
+  }
+
+  //set new category
+  const createNewCategory = (newCategory) =>{
+    console.log(newCategory)
+    updateCategories([...categories,{...newCategory, id:uuid() }])
   }
 
 
@@ -120,7 +139,8 @@ const deleteVideo = () =>{
       {showForm && <Form categories={
         categories.map((category)=>category.title)}
         addNewVideo={addNewVideo}
-        />}
+        /> }
+        {showForm && <CategoryForm  createNewCategory={createNewCategory}/>}
       <VideosSection toShowForm={changeStateForm}/>
       {
         categories.map((category)=>{

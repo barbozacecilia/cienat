@@ -2,11 +2,11 @@ import "./Video.css"
 import { GrClose } from "react-icons/gr"
 
 const Video = (props) =>{
-    const {title, link, img, description, category}= props.data
+    const {title, link, img, description, id, category}= props.data
     const {colorPrimary, deleteVideo } = props
     
     return <div className="video-container">
-        <GrClose onClick={deleteVideo}  className="delete"/>
+        <GrClose onClick={()=> deleteVideo(id)}  className="delete"/>
 
         <div className="top-card" style={{backgroundColor: colorPrimary}}>
            <a href={link}>

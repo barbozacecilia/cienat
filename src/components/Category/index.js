@@ -4,7 +4,7 @@ import hexToRgba from 'hex-to-rgba';
 
 
 const Category = (props) => {
-    const{ colorPrimary, colorSecondary, title} = props.data
+    const{ colorPrimary, colorSecondary,title, id} = props.data
     const {videos, deleteVideo, updateColor} = props
 
     const color = {
@@ -28,9 +28,9 @@ const Category = (props) => {
             <h3 style={borderTitle}>{title}</h3>
             <div className="videos">
                 {
-                videos.map((video, index)=> <Video 
+                videos.map((video, id)=> <Video 
                     data={video}
-                    key={index} 
+                    key={id} 
                     colorPrimary={hexToRgba (colorPrimary, 0.6)}
                     deleteVideo={deleteVideo}
                     /> )
