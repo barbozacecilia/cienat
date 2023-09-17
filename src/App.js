@@ -55,6 +55,34 @@ function App() {
 
 ])
 
+const [categories , updateCategories] = useState ([
+  {
+    title:"Astronomía" ,
+    colorPrimary: "#DB6EBF",
+    colorSecondary:"#FAE9F5",
+  },
+  {
+    title:"Biología",
+    colorPrimary: "#57C278" ,
+    colorSecondary: "#D9F7E9" ,
+  },
+  {
+    title:"Física" ,
+    colorPrimary: "#82CFFA" ,
+    colorSecondary:"#E8F8FF" ,
+  },
+  {
+    title:"Química" ,
+    colorPrimary: "#A6D157" ,
+    colorSecondary:"#F0F8E2",
+  },
+  {
+    title:"Otros" ,
+    colorPrimary: "#E06B69" ,
+    colorSecondary:"#FDE7E8",
+  }])
+  
+
 //Delete Video
 const deleteVideo = () =>{
   console.log("delete video")
@@ -62,6 +90,18 @@ const deleteVideo = () =>{
 
   const changeStateForm = () =>{
     setShowForm(!showForm)
+  }
+
+  //Update a category color
+  const updateColor = (color, title) => {
+    console.log ("update", color, title)
+    const updateCategoriesColor = categories.map((category) => {
+      if (category.title == title) {
+        category.colorPrimary = color
+      }
+      return category
+    })
+    updateCategories(updateCategoriesColor)
   }
 
   //add new video
@@ -72,36 +112,7 @@ const deleteVideo = () =>{
     setVideos([...videos, video])
   }
 
-  //List of Categories
 
-  const categories = [
-    {
-      title:"Astronomía" ,
-      colorPrimary: "#DB6EBF",
-      colorSecondary:"#FAE9F5",
-    },
-    {
-      title:"Biología",
-      colorPrimary: "#57C278" ,
-      colorSecondary: "#D9F7E9" ,
-    },
-    {
-      title:"Física" ,
-      colorPrimary: "#82CFFA" ,
-      colorSecondary:"#E8F8FF" ,
-    },
-    {
-      title:"Química" ,
-      colorPrimary: "#A6D157" ,
-      colorSecondary:"#F0F8E2",
-    },
-    {
-      title:"Otros" ,
-      colorPrimary: "#E06B69" ,
-      colorSecondary:"#FDE7E8",
-    },
-    
-  ]
    return (
     <div className="App">
       <Header/>
@@ -118,6 +129,7 @@ const deleteVideo = () =>{
            key={category.title}
            videos={videos.filter(video=> video.category === category.title)}
            deleteVideo= {deleteVideo}
+           updateColor={updateColor}
            />
 
         })

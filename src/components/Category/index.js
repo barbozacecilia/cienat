@@ -1,13 +1,14 @@
 import "./Category.css"
 import Video from "../Video"
+import hexToRgba from 'hex-to-rgba';
 
 
 const Category = (props) => {
     const{ colorPrimary, colorSecondary, title} = props.data
-    const {videos, deleteVideo} = props
+    const {videos, deleteVideo, updateColor} = props
 
     const color = {
-        backgroundColor: colorSecondary
+        backgroundColor: hexToRgba (colorPrimary, 0.6)
     } 
 
     const borderTitle ={
@@ -18,13 +19,19 @@ const Category = (props) => {
         {
         videos.length > 0 && 
             <section className="category" style={color}>
+            <input 
+            className="input-color" 
+            type="color"
+            value={colorPrimary}
+            onChange= {(event)=>{updateColor(event.target.value, title)}}
+             />
             <h3 style={borderTitle}>{title}</h3>
             <div className="videos">
                 {
                 videos.map((video, index)=> <Video 
                     data={video}
                     key={index} 
-                    colorPrimary={colorPrimary}
+                    colorPrimary={hexToRgba (colorPrimary, 0.6)}
                     deleteVideo={deleteVideo}
                     /> )
                 }

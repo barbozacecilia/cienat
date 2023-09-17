@@ -3,7 +3,7 @@ import { GrClose } from "react-icons/gr"
 
 const Video = (props) =>{
     const {title, link, img, description, category}= props.data
-    const {colorPrimary, deleteVideo} = props
+    const {colorPrimary, deleteVideo } = props
     
     return <div className="video-container">
         <GrClose onClick={deleteVideo}  className="delete"/>
