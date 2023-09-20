@@ -110,7 +110,7 @@ const deleteVideo = (id) =>{
   const updateColor = (color, title) => {
     console.log ("update", color, title)
     const updateCategoriesColor = categories.map((category) => {
-      if (category.title == title) {
+      if (category.title === title) {
         category.colorPrimary = color
       }
       return category

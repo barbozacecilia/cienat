@@ -27,6 +27,7 @@ const {createNewCategory} = props
             valor={color}
             setValor={setColor}
             required
+            type= "color"
             />
             <Button> Agregar Categoría</Button>
             </form>
