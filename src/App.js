@@ -7,6 +7,9 @@ import VideosSection from './components/VideosSection';
 import Category from './components/Category';
 import Footer from './components/Footer';
 import CategoryForm from './components/CategoryForm';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import ErrorPage from './components/ErrorPage';
+
 
 function App() {
   const [showForm, setShowForm]= useState(false)
@@ -62,6 +65,7 @@ function App() {
   }
 
 ])
+
 //Update Categories
 const [categories , updateCategories] = useState ([
   {
@@ -132,28 +136,73 @@ const deleteVideo = (id) =>{
   }
 
 
+  const location = window.location.pathname
+  console.log(location)
+
+  // const Router = () =>{
+  //   if (location === "/"){
+  //     return <Form categories={
+  //       categories.map((category)=>category.title)}
+  //       addNewVideo={addNewVideo}
+  //       />
+  //   }else{
+  //     return (<>
+  //       <VideosSection toShowForm={changeStateForm}/>
+  //       {
+  //         categories.map((category)=>{
+  //           return <Category
+  //            data={category} 
+  //            key={category.title}
+  //            videos={videos.filter(video=> video.category === category.title)}
+  //            deleteVideo= {deleteVideo}
+  //            updateColor={updateColor}
+  //            />
+  
+  //         })
+  //       }
+  //       </>
+  //     )
+      
+  //   }
+  // }
+
    return (
     <div className="App">
       <Header/>
-      {/* {showForm === true ? <Form/> : <></>} */}
-      {showForm && <Form categories={
-        categories.map((category)=>category.title)}
-        addNewVideo={addNewVideo}
-        /> }
-        {showForm && <CategoryForm  createNewCategory={createNewCategory}/>}
-      <VideosSection toShowForm={changeStateForm}/>
-      {
-        categories.map((category)=>{
-          return <Category
-           data={category} 
-           key={category.title}
-           videos={videos.filter(video=> video.category === category.title)}
-           deleteVideo= {deleteVideo}
-           updateColor={updateColor}
-           />
+        {/*showForm && <CategoryForm  createNewCategory={createNewCategory}>*/}
 
-        })
-      }
+    <Router>
+      <Routes>
+        <Route path='/add-new-category' element={
+          <CategoryForm  createNewCategory={createNewCategory}></CategoryForm>
+        }/>
+        <Route path='*' element={<ErrorPage/>}/>
+        <Route path='/add-new-video' element={
+          <Form categories={
+                  categories.map((category)=>category.title)}
+                  addNewVideo={addNewVideo}
+                />
+        }/>       
+        <Route path='/' element={
+          <>
+                <VideosSection toShowForm={changeStateForm}/>
+                {
+                  categories.map((category)=>{
+                    return <Category
+                     data={category} 
+                     key={category.title}
+                     videos={videos.filter(video=> video.category === category.title)}
+                     deleteVideo= {deleteVideo}
+                     updateColor={updateColor}
+                     />
+    
+                  })
+                }
+                </>
+        }/>
+      </Routes>
+
+    </Router>
            <Footer/>
 
     </div>
