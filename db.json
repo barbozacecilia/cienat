@@ -1,0 +1,89 @@
+{
+  "videos":[ {
+    "id": 1, 
+    "category": "Biología",
+    "description": "Las ramas de la biología; te explicamos cuáles son y qué estudian",
+    "img": "https://s1.significados.com/foto/ramas-de-la-biologia-1.jpg",
+    "link": "https://www.youtube.com/watch?v=SaUprQT9gj0",
+    "title": "Las ramas de la biología"
+  },
+  {
+    "id": 2,
+    "category": "Biología",
+    "description": "Que es la biología y su importancia.",
+    "img": "https://img.youtube.com/vi/XViBPvJAaxI/mqdefault.jpg",
+    "link": "https://www.youtube.com/watch?v=XViBPvJAaxI",
+    "title": "¿QUE ES LA BIOLOGÍA ?"
+  }
+  ,
+  {
+    "id": 3,
+    "category": "Química",
+    "description": "En este video definimos la química, damos ejemplos y vemos sus áreas de estudio.",
+    "img": "https://unibetas.com/wp-content/uploads/2022/01/que-estudia-la-quimica-como-ciencia-experimental.png",
+    "link": "https://www.youtube.com/watch?v=mdEYUTeIV6U",
+    "title": "¿Qué es la química? "
+  },
+  {
+    "id": 4,
+    "category": "Química",
+    "description": "En este video encontramos un rap de la tabla periódica",
+    "img": "https://i.ytimg.com/vi/4BiOoOvTN9M/maxresdefault.jpg",
+    "link": "https://www.youtube.com/watch?v=4BiOoOvTN9M",
+    "title": "RAP de la TABLA PERIÓDICA"
+  },
+  {
+    "id": 5,
+    "category": "Física",
+    "description": "En este video de introducción al curso, veremos el concepto de física, y veremos por qué es tan importante en nuestra vida. ",
+    "img": "https://img.youtube.com/vi/-GgrsezemTY/maxresdefault.jpg",
+    "link": "https://www.youtube.com/watch?v=-GgrsezemTY",
+    "title": "¿Qué es la Física? ¿Para qué sirve?"
+  }
+  ,
+  {
+    "id": 6,
+    "category": "Astronomía",
+    "description": "La definición de la Astronomía y su historia. ",
+    "img": "https://img.youtube.com/vi/XjcEYANHVpM/maxresdefault.jpg",
+    "link": "https://www.youtube.com/watch?v=XjcEYANHVpM",
+    "title": "La definición de la Astronomía y su historia."
+  }],
+  "categories": [
+    {
+      "id": "cat1",
+      "title":"Astronomía" ,
+      "colorPrimary": "#DB6EBF",
+      "colorSecondary":"#FAE9F5"
+    },
+    {
+      "id": "cat1",
+      "title":"Biología",
+      "colorPrimary": "#57C278" ,
+      "colorSecondary": "#D9F7E9" 
+    },
+    {
+      "id": "cat1",
+      "title":"Física" ,
+      "colorPrimary": "#82CFFA" ,
+      "colorSecondary":"#E8F8FF" 
+    },
+    {
+      "id": "cat1",
+      "title":"Química" ,
+      "colorPrimary": "#A6D157" ,
+      "colorSecondary":"#F0F8E2"
+    },
+    {
+      "id": "cat1",
+      "title":"Otros" ,
+      "colorPrimary": "#E06B69" ,
+      "colorSecondary":"#FDE7E8"
+    }],
+  "profile": {
+    "name": "Test",
+    "email": "test@test.com",
+    "password": "test123"
+
+  }
+}

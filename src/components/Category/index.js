@@ -35,6 +35,7 @@ const Category = (props) => {
                     deleteVideo={deleteVideo}
                     /> )
                 }
+                
             </div>
         </section>
     }

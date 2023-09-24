@@ -1,6 +1,6 @@
 import "./VideosSection.css";
 import { useState } from "react";
-
+import Videos from "../Video/Videos";
 
 const VideosSection = (props) =>{
     //const [show, setShow] = useState(true)
