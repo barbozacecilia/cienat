@@ -11,6 +11,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import ErrorPage from './components/ErrorPage';
 import { search } from './api/api';
 import VideoInfo from './components/Video/VideoInfo';
+import FormSignUp from './components/FormSignUp';
 
 
 function App() {
@@ -157,6 +158,7 @@ const deleteVideo = (id) =>{
                 </>
         }/>
         <Route path='videos/:id' element={<VideoInfo/>}/>
+        <Route path='/sign-up' element={<FormSignUp/>}/>
       </Routes>
 
     </Router>

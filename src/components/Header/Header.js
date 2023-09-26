@@ -20,6 +20,7 @@ function Header(){
                 </ul>
                 <ul>
                 <li><Link className="menu-item menu-item--entrar" to="#">Entrar</Link></li>
+                <li><Link className="menu-item menu-item--entrar" to="/sign-up">Registrarse</Link></li>
                 </ul>
             </nav>
             <div className="menu-header-background"></div>
