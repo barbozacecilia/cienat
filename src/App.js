@@ -95,6 +95,10 @@ const deleteVideo = (id) =>{
   const location = window.location.pathname
   console.log(location)
 
+  const handleSubmit = (signUpData) =>{
+    console.log('signUpData:', signUpData)
+  }
+
   // const Router = () =>{
   //   if (location === "/"){
   //     return <Form categories={
@@ -121,6 +125,8 @@ const deleteVideo = (id) =>{
       
   //   }
   // }
+
+
 
    return (
     <div className="App">
@@ -158,7 +164,7 @@ const deleteVideo = (id) =>{
                 </>
         }/>
         <Route path='videos/:id' element={<VideoInfo/>}/>
-        <Route path='/sign-up' element={<FormSignUp/>}/>
+        <Route path='/sign-up' element={<FormSignUp handleSubmit={handleSubmit} />}/>
       </Routes>
 
     </Router>
