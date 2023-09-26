@@ -4,7 +4,7 @@ import hexToRgba from 'hex-to-rgba';
 
 
 const Category = (props) => {
-    const{ colorPrimary, colorSecondary,title, id} = props.data
+    const{ colorPrimary,title, id} = props.data
     const {videos, deleteVideo, updateColor} = props
 
     const color = {

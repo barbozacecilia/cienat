@@ -57,25 +57,25 @@
       "colorSecondary":"#FAE9F5"
     },
     {
-      "id": "cat1",
+      "id": "cat2",
       "title":"Biología",
       "colorPrimary": "#57C278" ,
       "colorSecondary": "#D9F7E9" 
     },
     {
-      "id": "cat1",
+      "id": "cat3",
       "title":"Física" ,
       "colorPrimary": "#82CFFA" ,
       "colorSecondary":"#E8F8FF" 
     },
     {
-      "id": "cat1",
+      "id": "cat4",
       "title":"Química" ,
       "colorPrimary": "#A6D157" ,
       "colorSecondary":"#F0F8E2"
     },
     {
-      "id": "cat1",
+      "id": "cat5",
       "title":"Otros" ,
       "colorPrimary": "#E06B69" ,
       "colorSecondary":"#FDE7E8"

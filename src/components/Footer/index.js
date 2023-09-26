@@ -5,7 +5,7 @@ const Footer = () =>{
                 <img src="./img/cat.png" alt="cat icon" className="cat-img" />
                 <div className="social-media">
                 <a href="https://www.facebook.com/profile.php?id=100064995581461&mibextid=avESrC">
-                    <img src="./img/facebookicon.png" alt="facebook icon" />
+                    <img src="./img/facebook.png" alt="facebook icon" />
                 </a>
                 <a href="https://www.linkedin.com/in/barbozacecilia/">
                     <img src="./img/linkedingicon.png" alt="linkedin icon" />

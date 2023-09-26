@@ -10,6 +10,7 @@ import CategoryForm from './components/CategoryForm';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 import ErrorPage from './components/ErrorPage';
 import { search } from './api/api';
+import VideoInfo from './components/Video/VideoInfo';
 
 
 function App() {
@@ -155,6 +156,7 @@ const deleteVideo = (id) =>{
                 }
                 </>
         }/>
+        <Route path='videos/:id' element={<VideoInfo/>}/>
       </Routes>
 
     </Router>
