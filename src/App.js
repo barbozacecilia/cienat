@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { v4 as uuid} from 'uuid';
 import './App.css';
 import Header from './components/Header/Header';
-import Form from './components/Form/Form';
+import FormVideo from './components/FormVideo/FormVideo';
 import VideosSection from './components/VideosSection';
 import Category from './components/Category';
 import Footer from './components/Footer';
@@ -141,7 +141,7 @@ const deleteVideo = (id) =>{
         }/>
         <Route path='*' element={<ErrorPage/>}/>
         <Route path='/add-new-video' element={
-          <Form categories={
+          <FormVideo categories={
                   categories.map((category)=>category.title)}
                   addNewVideo={addNewVideo}
                 />

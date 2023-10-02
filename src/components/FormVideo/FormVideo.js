@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "./Form.css"
+import "./FormVideo.css"
 import InputForm from "../InputForm"
 import CategoryList from "../CategoryList"
 import Button from "../Button"

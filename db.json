@@ -80,10 +80,21 @@
       "colorPrimary": "#E06B69" ,
       "colorSecondary":"#FDE7E8"
     }],
-  "profile": {
-    "name": "Test",
+  "profile": [{
+    "id": "10",
+    "name": "test",
+    "lastName": "test",
     "email": "test@test.com",
-    "password": "test123"
+    "password": "test123a"
+
+  },
+  {
+    "id": "11",
+    "name": "test",
+    "lastName": "test",
+    "email": "test@test.com",
+    "password": "test123a"
 
   }
+]
 }
