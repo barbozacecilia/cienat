@@ -9,7 +9,7 @@ import StepperComponen from "../Stepper";
 import Step from "../Step";
 
 //validations
-import {verifyEmail, verifyPassword} from "./validation"
+import {verifyEmail, verifyPassword, verifyName,verifyLastName} from "./validation"
 
 function FormSignUp (props){
     const [step, setStep]= useState(0);
@@ -116,22 +116,22 @@ function FormSignUp (props){
       1:{
         inputs: [
           {
-            label: "Email",
-            type: "email",
+            label: "Nombre",
+            type: "text",
             value:"",
             valid:null,
             onChange: handleChange,
-            helperText:"ingresa un correo válido",
-            validator: verifyEmail ,
+            helperText:"Debe tener más de dos valores",
+            validator: verifyName ,
           },
           {
-            label: "Contraseña",
-            type: "password",
+            label: "Apellido",
+            type: "text",
             value:"",
             valid:null,
             onChange: handleChange,
-            helperText:"ingresa una contraseña valida",
-            validator: verifyPassword ,
+            helperText:"Debe tener más de dos valores",
+            validator: verifyLastName ,
           }
         ],
         buttonText: "Siguiente",

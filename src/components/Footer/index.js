@@ -1,31 +1,28 @@
 import "./Footer.css";
+import { IoLogoFacebook,IoLogoLinkedin } from "react-icons/io5";
+import { MdOutlineEmail } from "react-icons/md";
+
+
 
 const Footer = () =>{
-    return <footer>
-                <img src="./img/cat.png" alt="cat icon" className="cat-img" />
-                <div className="social-media">
+    return <>
+        <footer>
+            <div className="social-media">
                 <a href="https://www.facebook.com/profile.php?id=100064995581461&mibextid=avESrC">
-                    <img src="./img/facebook.png" alt="facebook icon" />
+                    <IoLogoFacebook alt="facebook icon" className="social-media_icon"/>
                 </a>
                 <a href="https://www.linkedin.com/in/barbozacecilia/">
-                    <img src="./img/linkedingicon.png" alt="linkedin icon" />
+                    <IoLogoLinkedin alt="linkedin icon" className="social-media_icon"/>
                 </a>
                 <a href="mailto:barboza.ceciliam@gmail.com">
-                    <img src="./img/email-icon.png" alt="email icon" />
+                    <MdOutlineEmail alt="email icon" className="social-media_icon"/>
                 </a>
-         </div>
-        <img src="./img/lamp.png" alt="lamp" className="lamp-img" />
-        <div className="logo-footer">
-            <img src="./img/footer-logo.png" alt="logo Cienat" className="logo-cienat" />
-        </div>
-        <div className="info-footer-container">
-        <strong className="info-footer">Desarrollado por Cecilia</strong>
-        <strong className="info-footer">Barboza</strong>    
-        </div>
-
-        <img src="./img/atom.png" alt="atom icon" className="atom-img"  />
-
-    </footer>
+             </div>
+            <div className="info-footer-container">
+                <strong className="info-footer">Sitio desarrollado por Cecilia Barboza</strong>
+            </div>
+        </footer>
+    </>
 }
 
 export default Footer;

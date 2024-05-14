@@ -1,12 +1,13 @@
 footer{
     max-width: 100%;
     display: flex;
+    flex-direction: column;
     padding: 5%;
     align-items: center;
     box-sizing: content-box;
     background-size: cover;
     background-position: center;
-    justify-content: space-around;
+    justify-content: center;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
@@ -18,41 +19,16 @@ footer{
     width: 2vh;
 }
 
-.logo-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+/*Filtered pixel, color applied through CSS filter */
+.social-media_icon{
+    filter: invert(99%) sepia(100%) saturate(0%) hue-rotate(23deg) brightness(101%) contrast(100%);
+    padding: 2vh;
 }
 
 .icon {
     width: 5vh;
 }
 
-.logo-cienat {
-    width: 30vh;
-}
-
-.cat-img {
-    position: relative;
-    left: -5vh;
-    width: 7vh;
-    top: 6vh;
-}
-
-.lamp-img{
-    position: relative;
-    left: 0%;
-    width: 5vh;
-    top: -50px;
-}
-
-.atom-img{
-    position: relative;
-    left: 5%;
-    width: 9vh;
-    top: 6vh;
-}
 
 .info-footer{
     font-size: 1.5vh;
@@ -60,6 +36,6 @@ footer{
 
 .info-footer-container{
     display: flex;
-    flex-direction: column;
+    padding: 1.5vh;
     align-items: flex-end;
 }
