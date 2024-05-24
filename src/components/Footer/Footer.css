@@ -19,9 +19,11 @@ footer{
     width: 2vh;
 }
 
-/*Filtered pixel, color applied through CSS filter */
-.social-media_icon{
+/*Filtered pixel, color applied through CSS filter
     filter: invert(99%) sepia(100%) saturate(0%) hue-rotate(23deg) brightness(101%) contrast(100%);
+*/
+
+.social-media_icon{
     padding: 2vh;
 }
 

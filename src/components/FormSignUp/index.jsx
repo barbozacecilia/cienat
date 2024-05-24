@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Container from '@mui/material/Container';
 import Typography from "@mui/material/Typography";
-import UserForm from "./UserForm";
+import UserForm from "../FormLogIn/UserFormLogIn";
 import PersonalDataForm from "./PersonalDataForm"
 import Complete from "./CompleteForm";
 import { FormSpace } from "./styles";

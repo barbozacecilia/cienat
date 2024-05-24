@@ -19,7 +19,7 @@ function Header(){
                     <li><Link className="menu-item" to="/add-new-video">Agregar un Nuevo Video</Link></li>
                 </ul>
                 <ul>
-                <li><Link className="menu-item menu-item--entrar" to="#">Entrar</Link></li>
+                <li><Link className="menu-item menu-item--entrar" to="/log-in">Entrar</Link></li>
                 <li><Link className="menu-item menu-item--entrar" to="/sign-up">Registrarse</Link></li>
                 </ul>
             </nav>

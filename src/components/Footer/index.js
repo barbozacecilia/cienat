@@ -9,13 +9,13 @@ const Footer = () =>{
         <footer>
             <div className="social-media">
                 <a href="https://www.facebook.com/profile.php?id=100064995581461&mibextid=avESrC">
-                    <IoLogoFacebook alt="facebook icon" className="social-media_icon"/>
+                    <IoLogoFacebook color="white" alt="facebook icon" className="social-media_icon"/>
                 </a>
                 <a href="https://www.linkedin.com/in/barbozacecilia/">
-                    <IoLogoLinkedin alt="linkedin icon" className="social-media_icon"/>
+                    <IoLogoLinkedin color="white" alt="linkedin icon" className="social-media_icon"/>
                 </a>
                 <a href="mailto:barboza.ceciliam@gmail.com">
-                    <MdOutlineEmail alt="email icon" className="social-media_icon"/>
+                    <MdOutlineEmail color="white" alt="email icon" className="social-media_icon"/>
                 </a>
              </div>
             <div className="info-footer-container">

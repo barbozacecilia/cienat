@@ -71,4 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
-### `json-server --watch db.json --port=3000` ->  To start JSON Server
+### `json-server --watch db.json --port=3001` ->  To start JSON Server

@@ -12,8 +12,8 @@ import ErrorPage from './components/ErrorPage';
 import { search } from './api/api';
 import VideoInfo from './components/Video/VideoInfo';
 import FormSignUp from './components/FormSignUp';
-
-
+import FormLogIn from './components/FormLogIn';
+import { AuthProvider } from './context/AuthContext';
 function App() {
   const [showForm, setShowForm]= useState(false)
 
@@ -129,7 +129,8 @@ const deleteVideo = (id) =>{
 
 
    return (
-    <div className="App">
+    <AuthProvider>
+      <div className="App">
       
         {/*showForm && <CategoryForm  createNewCategory={createNewCategory}>*/}
 
@@ -164,6 +165,7 @@ const deleteVideo = (id) =>{
                 </>
         }/>
         <Route path='videos/:id' element={<VideoInfo/>}/>
+        <Route path='/log-in' element={<FormLogIn/>}/>
         <Route path='/sign-up' element={<FormSignUp handleSubmit={handleSubmit} />}/>
       </Routes>
 
@@ -171,6 +173,8 @@ const deleteVideo = (id) =>{
            <Footer/>
 
     </div>
+    </AuthProvider>
+  
   );
 }
 

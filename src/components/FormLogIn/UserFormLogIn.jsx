@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { Box, Button } from "@mui/material";
 import TextField from '@mui/material/TextField';
-import {verifyEmail, verifyPassword} from "./validation"
+import {verifyEmail, verifyPassword} from "../FormSignUp/validation"
+import { useAuth } from "../../context/AuthContext";
 
-function UserForm (props){
+
+function UserFormLogIn (props){
+
+  const auth = useAuth()  
   const{ updateStep }=props
     const[email, setEmail]=useState({value: '', valid: null})
     const[password, setPassword]=useState({value: '', valid: null})
+
+    console.log('state', email.value , password.value)
 
       return ( 
         <Box maxWidth="lg"
@@ -14,10 +20,10 @@ function UserForm (props){
         autoComplete="off" 
         onSubmit={(e) => {
             e.preventDefault();
+            auth.register(email.value ,password.value)
             if (email.valid && password.valid) {
-              console.log("Siguiente formulario");
+              console.log("ok");
               console.log(email, password);
-              updateStep(1)
             } else {
               console.log("Revisa datos");
             }
@@ -64,4 +70,4 @@ function UserForm (props){
 )
 }
 
-export default UserForm;
+export default UserFormLogIn;
