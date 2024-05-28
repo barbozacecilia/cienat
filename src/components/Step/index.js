@@ -5,6 +5,10 @@ import TextField from '@mui/material/TextField';
 function Step (props){
   const{ data, step }=props
 
+  if(!data) {
+    return null
+  }
+
   const{inputs, buttonText, onSubmit} = data;
     
       return ( 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import Container from '@mui/material/Container';
 import Typography from "@mui/material/Typography";
 import UserForm from "../FormLogIn/UserFormLogIn";
@@ -8,12 +8,20 @@ import { FormSpace } from "./styles";
 import StepperComponen from "../Stepper";
 import Step from "../Step";
 
+//Auth
+//import { useAuth } from "../../context/AuthContext";
+//import { AuthContext } from "../../context/AuthContext";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+
+//Firebase db users
+import { setDoc , doc} from "firebase/firestore";
+import { db, auth } from "../../firebase/firebase.config";
 //validations
 import {verifyEmail, verifyPassword, verifyName,verifyLastName} from "./validation"
 
 function FormSignUp (props){
     const [step, setStep]= useState(0);
-    const [ stepState , setStepState ] = useState({});
+    //const [ stepState , setStepState ] = useState({});
     //use localstorage
     // const selectStep = () => {
     //   switch (step){
@@ -29,6 +37,16 @@ function FormSignUp (props){
     //     }
     // }
 
+    /**Auth */
+    //const auth = useAuth()  
+    //const { register, user, loading } = useContext(AuthContext)
+    //const {register} = useAuth();
+    const[email, setEmail]=useState({value: '', valid: null})
+    const[password, setPassword]=useState({value: '', valid: null})
+    const [fName, setFName] = useState({value: '', valid: null});
+    const [lName, setLName] = useState({value: '', valid: null})
+
+/*
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -41,7 +59,7 @@ function FormSignUp (props){
       };
     
       fetchData();
-    }, []);
+    }, []);*/
 
       // useEffect(async () => {
   //   try {
@@ -53,13 +71,32 @@ function FormSignUp (props){
   //   }
   // });
 
-    const onSubmit= (e)=>{
-      e.preventDefault();
-        let newStep = step +1
-        setStep(newStep)
-        console.log("newStep", newStep)
-        console.log(step)
-    }
+
+    const onSubmit= async (e)=>{
+      e.preventDefault()
+      try{
+       await createUserWithEmailAndPassword(auth, email.value, password.value);
+        const user = auth.currentUser;
+        console.log("User:", user);
+          let newStep = step + 1;
+          setStep(newStep);
+          if(user){
+            // Add a new document in collection "users"
+           await setDoc(doc(db, "users", user.uid), {
+              firstName: fName,
+              lastName: lName
+            })
+          }
+          console.log("User Registered Successfully!!");
+        }catch(e){
+          console.log(e.message)
+        }
+      } 
+      
+
+
+
+
     const updateStep =(stepNumber)=>{
       console.log("actualizar paso", stepNumber)
       setStep(stepNumber)
@@ -75,17 +112,36 @@ function FormSignUp (props){
       2: <Complete updateStep={updateStep}/>
     };
 
+    const handleChangeFistName = (e) =>{
+      const value = e.target.value
+      const valid = verifyName(value)
+      setFName(e.target.value)
+    }
 
+    const handleChangeLastName = (e) =>{
+      const value = e.target.value
+      const valid = verifyLastName(value)
+      setLName(e.target.value)
+    }
 
-    const handleChange = (element, position, currentStep, validator) =>{
-      const value = element.target.value
+    const handleChangePassword = (e, position, currentStep, validator) =>{
+      const value = e.target.value
       const valid = validator(value)
       console.log(value)
       console.log(valid)
       console.log(position,"position")
       console.log(currentStep, "currentStep")
       console.log(validator, "validator")
+      setPassword({value:value , valid: valid})
+    }
 
+    const handleChangeEmail = (e, position, currentStep, validator) =>{
+      const value = e.target.value
+      const valid = validator(value)
+      console.log(position,"position")
+      console.log(currentStep, "currentStep")
+      console.log(validator, "validator")
+      setEmail({value:value, valid: valid})
     }
 
     const stepsFlow ={
@@ -94,42 +150,60 @@ function FormSignUp (props){
           {
             label: "Email",
             type: "email",
-            value:"",
-            valid:null,
-            onChange: handleChange,
+            value:(email.value),
+            valid:email.valid,
+            onChange: handleChangeEmail,
             helperText:"ingresa un correo válido",
             validator: verifyEmail ,
           },
           {
             label: "Contraseña",
             type: "password",
-            value:"",
-            valid:null,
-            onChange: handleChange,
+            value: (password.value),
+            valid: password.valid,
+            onChange: handleChangePassword,
             helperText:"ingresa una contraseña valida",
             validator: verifyPassword ,
-          }
-        ],
-        buttonText: "Siguiente",
-        onSubmit
-      },
-      1:{
-        inputs: [
+          },
           {
             label: "Nombre",
             type: "text",
-            value:"",
-            valid:null,
-            onChange: handleChange,
+            value: fName.value,
+            valid: fName.valid,
+            onChange: handleChangeFistName,
             helperText:"Debe tener más de dos valores",
             validator: verifyName ,
           },
           {
             label: "Apellido",
             type: "text",
-            value:"",
-            valid:null,
-            onChange: handleChange,
+            value: lName.value,
+            valid: lName.valid,
+            onChange: handleChangeLastName,
+            helperText:"Debe tener más de dos valores",
+            validator: verifyLastName ,
+          }
+        ],
+        buttonText: "Siguiente",
+        onSubmit
+      },
+       1:{
+        inputs: [
+          {
+            label: "Nombre",
+            type: "text",
+            value: fName.value,
+            valid: fName.valid,
+            onChange: handleChangeFistName,
+            helperText:"Debe tener más de dos valores",
+            validator: verifyName ,
+          },
+          {
+            label: "Apellido",
+            type: "text",
+            value:lName.value,
+            valid: lName.valid,
+            onChange: handleChangeLastName,
             helperText:"Debe tener más de dos valores",
             validator: verifyLastName ,
           }
@@ -137,6 +211,7 @@ function FormSignUp (props){
         buttonText: "Siguiente",
         onSubmit
       }
+      
     }
 
 

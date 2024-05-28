@@ -3,6 +3,7 @@ import { Box, Button } from "@mui/material";
 import TextField from '@mui/material/TextField';
 import {verifyEmail, verifyPassword} from "../FormSignUp/validation"
 import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 
 function UserFormLogIn (props){
@@ -12,18 +13,24 @@ function UserFormLogIn (props){
     const[email, setEmail]=useState({value: '', valid: null})
     const[password, setPassword]=useState({value: '', valid: null})
 
-    console.log('state', email.value , password.value)
+    const navigate = useNavigate();
 
       return ( 
         <Box maxWidth="lg"
         component="form"
         autoComplete="off" 
         onSubmit={(e) => {
+        // Handle form submission for user login
             e.preventDefault();
-            auth.register(email.value ,password.value)
+            auth.loginUser(email ,password)
+            //.then((result) => {
+             // console.log(result);
+          
+            //})
+            .catch((error) => console.log(error.message));
             if (email.valid && password.valid) {
               console.log("ok");
-              console.log(email, password);
+              navigate("/");
             } else {
               console.log("Revisa datos");
             }
