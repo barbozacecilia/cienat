@@ -65,7 +65,7 @@ function FormUser (props){
                 required
                 id="name"
                 type="text"
-                label="Nombre"
+                label="Nombres"
                 variant="filled"
                 fullWidth
                 margin="normal"
@@ -93,7 +93,7 @@ function FormUser (props){
                       required
                       id="lastName"
                       type="text"
-                      label="Apellido"
+                      label="Apellidos"
                       variant="filled"
                       fullWidth
                       margin="normal"
@@ -126,4 +126,4 @@ function FormUser (props){
 )
 }
 
-export default FormUser;
+export default PersonalDataForm

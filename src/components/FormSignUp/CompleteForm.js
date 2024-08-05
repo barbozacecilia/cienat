@@ -10,7 +10,8 @@ const Img = styled.img`
      margin: 2vh;
 `;
 
-const Complete = () => {
+const Complete = (props) => {
+  const{ updateStep } =props
   return (
     <Box
       sx={{
@@ -21,6 +22,7 @@ const Complete = () => {
       }}
     >
       <Typography variant="h4">¡Gracias por tu registro!</Typography>
+      <h1>Gracias por tu registro {updateStep}</h1>
       <Img src="/img/cienat-logo.png" />
     </Box>
   );

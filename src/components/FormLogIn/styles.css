@@ -1,0 +1,11 @@
+.btn-access {
+    background-color: red,
+}
+
+.log-in-container{
+    display: flex;
+    height: 50vh;
+    padding: 10vh;
+    flex-direction: column;
+    justify-content: center;
+}

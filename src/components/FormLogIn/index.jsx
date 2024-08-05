@@ -7,7 +7,7 @@ import UserFormLogIn from './UserFormLogIn';
 
 function FormLogIn(props){
       return ( 
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" className='log-in-container'>
             <Typography variant="h4" align="center">¡Bienvenido!</Typography >
             <UserFormLogIn/>
         </Container>
