@@ -18,7 +18,7 @@ function Step(props) {
 
       {
         inputs.map((input, i) => {
-          const { label, type, value, valid, onChange, helperText, validator } = input
+          const { label, type, value, valid, onChange, helperText } = input
           return (
             <TextField
               key={i}
@@ -29,7 +29,7 @@ function Step(props) {
               fullWidth
               helperText={valid === false ? helperText : ''}
               error={valid === false}
-              onChange={(element) => onChange(element, i, step, validator)}
+              onChange={(element) => onChange(element, i, step)}
               value={value}
             />
 

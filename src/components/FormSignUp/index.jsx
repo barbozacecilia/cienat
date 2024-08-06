@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext } from "react";
 //mui
 import Container from '@mui/material/Container';
 import Typography from "@mui/material/Typography";
@@ -9,7 +9,6 @@ import { FormSpace } from "./styles";
 import Step from "../Step";
 //components
 import Complete from "./CompleteForm";
-import StepperComponen from "../Stepper";
 
 //Auth
 //import { useAuth } from "../../context/AuthContext";
@@ -17,15 +16,14 @@ import StepperComponen from "../Stepper";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 //Firebase db users
-import { setDoc , doc, updateDoc} from "firebase/firestore";
+import { setDoc , doc} from "firebase/firestore";
 import { db, auth } from "../../firebase/firebase.config";
 //validations
 import {verifyEmail, verifyPassword, verifyName,verifyLastName} from "./validation"
 
-//REVISAR EL TEXTHELPER//
 
 
-function FormSignUp (props){
+function FormSignUp (){
     const [step, setStep]= useState(0);
 
     /**Auth */
@@ -44,8 +42,6 @@ function FormSignUp (props){
        await createUserWithEmailAndPassword(auth, email.value, password.value);
         const user = auth.currentUser;
         console.log("User:", user);
-          let newStep = step + 1;
-          setStep(newStep);
           //const refUser = doc(db,"users", user.id)
           if(user){
             // Add a new document in collection "users"
@@ -63,20 +59,15 @@ function FormSignUp (props){
       const onSubmitNext =()=>{
 
       }
-
+/** 
     const updateStep =(stepNumber)=>{
       console.log("actualizar paso", stepNumber)
       setStep(stepNumber)
     }
-/**    const handleSubmit = (signUpData) =>{
+   const handleSubmit = (signUpData) =>{
       console.log('signUpDataPersonalDataForm:', signUpData)
     } */
 
-
-    const steps ={
-      0: <UserForm updateStep={updateStep}/>,
-      1: <Complete updateStep={updateStep}/>
-    };
 
     const handleChangeFistName = (e) =>{
       const value = e.target.value
@@ -90,23 +81,15 @@ function FormSignUp (props){
       setLName({value, valid})
     }
 
-    const handleChangePassword = (e, position, currentStep, validator) =>{
+    const handleChangePassword = (e) =>{
       const value = e.target.value
-      const valid = validator(value)
-      console.log(value)
-      console.log(valid)
-      console.log(position,"position")
-      console.log(currentStep, "currentStep")
-      console.log(validator, "validator")
+      const valid = verifyPassword(value)
       setPassword({value:value , valid: valid})
     }
 
-    const handleChangeEmail = (e, position, currentStep, validator) =>{
+    const handleChangeEmail = (e ) =>{
       const value = e.target.value
-      const valid = validator(value)
-      console.log(position,"position")
-      console.log(currentStep, "currentStep")
-      console.log(validator, "validator")
+      const valid = verifyEmail(value)
       setEmail({value:value, valid: valid})
     }
 
@@ -120,7 +103,6 @@ function FormSignUp (props){
             valid: fName.valid,
             onChange: handleChangeFistName,
             helperText:"Debe tener más de dos valores",
-            validator: verifyName ,
           },
           {
             label: "Apellido",
@@ -129,7 +111,6 @@ function FormSignUp (props){
             valid: lName.valid,
             onChange: handleChangeLastName,
             helperText:"Debe tener más de dos valores",
-            validator: verifyLastName ,
           },
           {
             label: "Email",
@@ -138,7 +119,6 @@ function FormSignUp (props){
             valid:email.valid,
             onChange: handleChangeEmail,
             helperText:"ingresa un correo válido",
-            validator: verifyEmail ,
           },
           {
             label: "Contraseña",
@@ -147,18 +127,13 @@ function FormSignUp (props){
             valid: password.valid,
             onChange: handleChangePassword,
             helperText:"ingresa una contraseña valida",
-            validator: verifyPassword ,
           },
 
         ],
-        buttonText: "Siguiente",
+        buttonText: "Registrarme",
         onSubmit
       },
-      1: {
-          buttonText: "Siguiente",
-           onSubmitNext
-           
-        }
+
     }
 
   
@@ -166,7 +141,6 @@ function FormSignUp (props){
         <Container maxWidth="lg">
             <Typography variant="h4" align="center">¡Sumate a nuestra comunidad!</Typography >
             <FormSpace>
-              { step < 1 && <StepperComponen step={step}/>}
               <Step data={stepsFlow[step]} step={step}/>
             </FormSpace>
         </Container>

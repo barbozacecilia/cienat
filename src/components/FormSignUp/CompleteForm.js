@@ -21,7 +21,6 @@ const Complete = (props) => {
         flexDirection: "column",
       }}
     >
-      <Typography variant="h4">¡Gracias por tu registro!</Typography>
       <h1>Gracias por tu registro {updateStep}</h1>
       <Img src="/img/cienat-logo.png" />
     </Box>

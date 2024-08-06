@@ -14,6 +14,7 @@ import VideoInfo from './components/Video/VideoInfo';
 import FormSignUp from './components/FormSignUp';
 import FormLogIn from './components/FormLogIn';
 import { AuthProvider } from './context/AuthContext';
+import StepperSingUp from './components/SignUp';
 function App() {
   const [showForm, setShowForm]= useState(false)
 
@@ -166,7 +167,7 @@ const deleteVideo = (id) =>{
         }/>
         <Route path='videos/:id' element={<VideoInfo/>}/>
         <Route path='/log-in' element={<FormLogIn/>}/>
-        <Route path='/sign-up' element={<FormSignUp handleSubmit={handleSubmit} />}/>
+        <Route path='/sign-up' element={<StepperSingUp handleSubmit={handleSubmit} />}/>
       </Routes>
 
     </Router>
