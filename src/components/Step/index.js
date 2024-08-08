@@ -2,7 +2,7 @@ import { Box, Button } from "@mui/material";
 import TextField from '@mui/material/TextField';
 
 function Step(props) {
-  const { data, step } = props
+  const { data } = props
 
   if (!data) {
     return null
@@ -29,7 +29,7 @@ function Step(props) {
               fullWidth
               helperText={valid === false ? helperText : ''}
               error={valid === false}
-              onChange={(element) => onChange(element, i, step)}
+              onChange={(element) => onChange(element)}
               value={value}
             />
 

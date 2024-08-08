@@ -19,6 +19,8 @@ export const verifyPassword = (password) => {
 }
 
 
+
+
 export const verifyName = (name) => {
     console.log(name)
     const length = name.length

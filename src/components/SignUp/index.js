@@ -11,7 +11,6 @@ import FormSignUp from '../FormSignUp/index'
 
 const steps = ['Crea una nueva cuenta', 'Disfruta tu cuenta', 'Cuenta creada'];
 
-
 function getStepContent(stepIndex, setActiveStep) {
   switch (stepIndex) {
     case 0:
@@ -26,9 +25,7 @@ function getStepContent(stepIndex, setActiveStep) {
 }
 
 function StepperSingUp() {
-  const [activeStep, setActiveStep] = useState(0);
-
-
+  const [activeStep, setActiveStep] = useState(0)
 
   const handleReset = () => {
     setActiveStep(0);
@@ -69,7 +66,6 @@ function StepperSingUp() {
             onClick={handleStep(activeStep + 1)}
           >{activeStep === steps.length - 1 ? 'Finaliza' : 'Siguiente'}
           </Button>
-
         </>
       )}
 
